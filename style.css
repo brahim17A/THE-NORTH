@@ -1,169 +1,187 @@
-# Create the necessary CSS and JS files for the original version of THE NORTH RP site
 
-# CSS content for style.css
-style_css_content = """
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  margin: 0;
   font-family: 'Cairo', sans-serif;
-  background: #000;
+  background-color: #000;
   color: #fff;
   overflow-x: hidden;
+  position: relative;
+}
+#particles-js {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.8rem;
+  color: #00ffff;
+  text-shadow: 0 0 25px #00ffff;
+  animation: flicker 2s infinite alternate;
+}
+@keyframes flicker {
+  0% { opacity: 1; text-shadow: 0 0 10px #00ffff; }
+  50% { opacity: 0.8; text-shadow: 0 0 20px #00ffff; }
+  100% { opacity: 1; text-shadow: 0 0 25px #00ffff; }
+}
+.btn-discord {
+  background: #5865f2;
+  border: none;
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 0 15px #5865f2;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.btn-discord:hover {
+  transform: scale(1.1);
+}
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #5865f2;
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px #5865f2;
+  color: white;
+  font-weight: bold;
+  z-index: 999;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px #5865f2; }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px #5865f2; }
+  100% { transform: scale(1); box-shadow: 0 0 10px #5865f2; }
+}
+.features, .rules, .jobs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 60px 20px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 16px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+footer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 30px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.online-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 14px;
+  height: 14px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff00;
+  z-index: 1000;
+}
+
+.online-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #00ff00;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00ff00;
+  z-index: 999;
+}
+
+.online-status .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff00;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #111;
-  position: sticky;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 10px 30px;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  width: 100%;
+  z-index: 10000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .navbar-logo {
   display: flex;
   align-items: center;
-}
-
-.navbar-logo img {
-  height: 40px;
-  margin-left: 10px;
-}
-
-.navbar-logo span {
-  font-family: 'Orbitron', sans-serif;
+  gap: 10px;
+  color: #00ffff;
   font-size: 1.2rem;
-  color: cyan;
-}
-
-.navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-links li a {
-  text-decoration: none;
-  color: #fff;
   font-weight: bold;
 }
-
+.navbar-logo img {
+  height: 30px;
+}
+.navbar-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar-links li a:hover {
+  color: #00ffff;
+}
 .navbar-actions {
   display: flex;
-  gap: 1rem;
-}
-
-.btn-discord {
-  background-color: #4c5eff;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-discord:hover {
-  background-color: #3a48cc;
-}
-
-header {
-  text-align: center;
-  padding: 5rem 1rem;
-  background: transparent;
-}
-
-header h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
-}
-
-.features, .jobs, .rules {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.card {
-  background: #111;
-  border: 1px solid cyan;
-  padding: 1rem 2rem;
-  border-radius: 15px;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  background: #222;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #111;
-  color: #ccc;
-  margin-top: 2rem;
-}
-
-.floating-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #4c5eff;
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border-radius: 25px;
-  text-decoration: none;
-  z-index: 1001;
-  box-shadow: 0 0 10px rgba(0,0,255,0.5);
-}
-
-.online-status {
-  display: flex;
   align-items: center;
-  position: fixed;
-  top: 90px;
-  left: 20px;
-  z-index: 1001;
+  gap: 20px;
 }
-
-.online-status .dot {
-  width: 10px;
-  height: 10px;
-  background: lime;
-  border-radius: 50%;
-  margin-left: 8px;
+.navbar-actions i {
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
 }
-"""
-
-# JS content for script.js
-script_js_content = """
-function playClick() {
-  var clickSound = document.getElementById('clickSound');
-  if (clickSound) clickSound.play();
+.navbar-actions i:hover {
+  color: #00ffff;
 }
-"""
-
-# Save the CSS and JS files
-style_css_path = os.path.join(project_folder, "style.css")
-script_js_path = os.path.join(project_folder, "script.js")
-
-with open(style_css_path, "w", encoding="utf-8") as f:
-    f.write(style_css_content)
-
-with open(script_js_path, "w", encoding="utf-8") as f:
-    f.write(script_js_content)
-
-# Update the zip file with the new files
-with ZipFile(zip_path, "a") as zipf:
-    zipf.write(style_css_path, os.path.relpath(style_css_path, project_folder))
-    zipf.write(script_js_path, os.path.relpath(script_js_path, project_folder))
-
-zip_path
