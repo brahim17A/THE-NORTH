@@ -1,105 +1,39 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>THE NORTH RP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    window.onload = () => AOS.init();
-  </script>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="navbar-logo">
-    <img src="https://i.imgur.com/RN7dX3Z.png" alt="logo" />
-    <span>THE NORTH RP</span>
+  <div class="nav-left">
+    <img src="logo.png" alt="logo" class="logo" />
   </div>
-  <ul class="navbar-links">
-    <li><a href="#">الرئيسية</a></li>
-    <li><a href="#">القوانين</a></li>
-    <li><a href="#">الوظائف</a></li>
-    <li><a href="#">الدعم</a></li>
+  <ul class="nav-links">
+    <li><a href="#">Games</a></li>
+    <li><a href="#">Newswire</a></li>
+    <li><a href="#">Videos</a></li>
+    <li><a href="#">Downloads</a></li>
+    <li><a href="#">Store</a></li>
+    <li><a href="#">Support</a></li>
   </ul>
-  <div class="navbar-actions">
-    <a href="https://discord.gg/yourserver" class="btn-discord">انضم للديسكورد</a>
+  <div class="nav-right">
+    <a class="btn-launcher" href="#">GET LAUNCHER</a>
     <i class="fas fa-search"></i>
     <i class="fas fa-user-circle"></i>
   </div>
 </nav>
-  <div class="online-status">
-  <div class="dot"></div>
-  <span>أونلاين</span>
-</div>
-  <div class="online-indicator"></div>
 
-  <div id="particles-js"></div>
-  <a href="https://discord.gg/YOUR_LINK" target="_blank" class="floating-btn">دخول الديسكورد</a>
-  <header>
-    <h1 data-aos="zoom-in">THE NORTH RP</h1>
-    <button class="btn-discord" onclick="playClick()" data-aos="fade-up">انضم الآن</button>
-  </header>
+<!-- المحتوى الرئيسي -->
+<main style="padding-top: 100px;">
+  <h1 style="text-align:center;color:cyan;">THE NORTH RP</h1>
+</main>
 
-  <section class="features">
-    <div class="card" data-aos="fade-up">واقعية تامة</div>
-    <div class="card" data-aos="fade-up">إدارة محترفة</div>
-    <div class="card" data-aos="fade-up">أحداث يومية</div>
-    <div class="card" data-aos="fade-up">مجتمع راقٍ</div>
-  </section>
-
-  <section class="jobs">
-    <div class="card" data-aos="zoom-in">شرطة</div>
-    <div class="card" data-aos="zoom-in">إسعاف</div>
-    <div class="card" data-aos="zoom-in">ميكانيكي</div>
-    <div class="card" data-aos="zoom-in">مواطن</div>
-  </section>
-
-  <section class="rules">
-    <div class="card" data-aos="flip-up">ممنوع RDM</div>
-    <div class="card" data-aos="flip-up">احترام اللاعبين</div>
-    <div class="card" data-aos="flip-up">ممنوع استغلال الثغرات</div>
-    <div class="card" data-aos="flip-up">تمثيل واقعي دائم</div>
-  </section>
-
-  <footer>
-    &copy; 2025 THE NORTH RP - جميع الحقوق محفوظة.
-  </footer>
-
-  <audio id="clickSound" src="click.mp3"></audio>
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        color: { value: "#00ffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#00ffff",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          out_mode: "bounce"
-        }
-      }
-    });
-  </script>
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>
-
